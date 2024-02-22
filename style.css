@@ -59,7 +59,7 @@ body {
 .container section {
     height: 100%;
     width: 100%;
-    padding: 50px;
+    padding: 80px 50px;
 }
 
 .inputs {
@@ -71,7 +71,7 @@ body {
 
 .inputs input {
     height: auto;
-    width: 150px;
+    width: 140px;
     font-size: 32px;
     padding: 10px 30px;
     margin-right: 20px;
@@ -120,4 +120,25 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .input-container:nth-child(3)::before {
     content: "YEAR";
+}
+
+@media screen and (max-width: 640px) {
+    .inputs {
+        justify-content: space-between;
+    }
+
+    .inputs input {
+        margin-right: 0;
+        font-size: 20px;
+        width: 100px;
+        padding: 10px 20px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .container section {
+        padding: 80px 10px;
+    }
 }
