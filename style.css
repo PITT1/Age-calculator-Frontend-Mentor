@@ -125,10 +125,6 @@ input[type="number"]::-webkit-outer-spin-button {
     content: "YEAR";
 }
 
-.required {
-    background-color: rgba(43, 182, 182, 0);
-}
-
 .required::after {
     content: "This fiel is required";
     position: absolute;
@@ -139,14 +135,52 @@ input[type="number"]::-webkit-outer-spin-button {
     color: var(--Light-red);
     top: 110%;
     left: 0;
+    transition: 0.3s ease;
 }
 
 .required::before {
     color: var(--Light-red)!important;
+    transition: 0.3s ease;
 }
 
 .required-border {
     border: 1px solid var(--Light-red)!important;
+}
+
+.valid-day {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    color: var(--Light-red);
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.valid-month {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    color: var(--Light-red);
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.valid-year {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    color: var(--Light-red);
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
 }
 
 .button {

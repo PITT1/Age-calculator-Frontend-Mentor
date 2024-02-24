@@ -6,6 +6,9 @@ const years_out = document.querySelector('.years-out');
 const month_out = document.querySelector('.month-out');
 const day_out = document.querySelector('.day-out');
 const input_container = document.querySelectorAll('.input-container');
+const validDay = document.querySelector('.valid-day');
+const validMonth = document.querySelector('.valid-month');
+const validYear = document.querySelector('.valid-year');
 
 let date2 = new Date();
 let currentYear = date2.getFullYear();
@@ -30,9 +33,8 @@ const calculateYearsOld = () => {
     day_out.innerText = days;
 }
 
-button.addEventListener('click', () => {
-
-    if (day_in.value > 0 && day_in.value < 31 && month_in.value > 0 && month_in.value < 12 && year_in.value > 0 && year_in.value < currentYear){
+const fieldRequired = () => {
+    if (day_in.value > 0 && day_in.value < 32 && month_in.value > 0 && month_in.value < 13 && year_in.value > 0 && year_in.value < currentYear +1){
         calculateYearsOld();
         day_in.classList.remove('required-border');
         input_container[0].classList.remove('required');
@@ -56,4 +58,29 @@ button.addEventListener('click', () => {
             input_container[2].classList.add('required');
         }
     }
+}
+
+const validYearsMonthDays = () => {
+    if (day_in.value > 31) {
+        validDay.style.display = "block"
+    } else {
+        validDay.style.display = "none"
+    }
+
+    if (month_in.value > 12) {
+        validMonth.style.display = "block";
+    } else {
+        validMonth.style.display = "none";
+    }
+
+    if (year_in.value > currentYear) {
+        validYear.style.display = "block";
+    } else {
+        validYear.style.display = "none";
+    }
+}
+
+button.addEventListener('click', () => {
+    fieldRequired();
+    validYearsMonthDays();
 })
