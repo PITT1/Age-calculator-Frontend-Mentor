@@ -10,9 +10,9 @@ const validDay = document.querySelector('.valid-day');
 const validMonth = document.querySelector('.valid-month');
 const validYear = document.querySelector('.valid-year');
 
+
 let date2 = new Date();
 let currentYear = date2.getFullYear();
-
 
 const calculateYearsOld = () => {
     let date1 = new Date(year_in.value, month_in.value -1, day_in.value);
@@ -34,7 +34,7 @@ const calculateYearsOld = () => {
 }
 
 const fieldRequired = () => {
-    if (day_in.value > 0 && day_in.value < 32 && month_in.value > 0 && month_in.value < 13 && year_in.value > 0 && year_in.value < currentYear +1){
+    if (day_in.value > 0 && day_in.value < 32 && month_in.value > 0 && month_in.value < 13 && year_in.value > 0 && year_in.value < currentYear){
         calculateYearsOld();
         day_in.classList.remove('required-border');
         input_container[0].classList.remove('required');
@@ -80,7 +80,18 @@ const validYearsMonthDays = () => {
     }
 }
 
+
+function validarFecha(year, month, day) {
+    var fecha = new Date(year, month -  1, day);
+    if (fecha.getFullYear() === year && fecha.getMonth() +  1 === month && fecha.getDate() === day) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 button.addEventListener('click', () => {
+    console.log(validarFecha(year_in.value, month_in.value, day_in.value));
     fieldRequired();
     validYearsMonthDays();
 })
